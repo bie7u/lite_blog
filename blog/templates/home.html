@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twoj blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+<section class="main_container">
+<div class="left">
+    <div class="up-navbar">
+        <div class="nav-avatar">
+            <img class="circle-img" src="{% static 'img/images.jpeg' %}" alt="Avatar">
+        </div>
+        <div><h1>Krystian Biel</h1></div>
+    </div>
+    <ul class="nav-down" >
+        <li class="nav-down-li">Home</li>
+        <li class="nav-down-li">Raz</li>
+        <li class="nav-down-li">Dwa</li>
+        <li class="nav-down-li" onclick="toggleDropdown(this)">Trzy
+            <ul class="dropdown-menu">
+                <li class="nav-down-li">One</li>
+                <li class="nav-down-li">Two</li>
+                <li class="nav-down-li">Three</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+    <div class="right">
+
+    </div>
+</section>
+
+  <script>
+    function toggleDropdown(item) {
+        console.log('siema')
+      item.classList.toggle('show-dropdown');
+
+      // Close other open dropdowns if needed
+      document.querySelectorAll('.navbar li').forEach(li => {
+        if (li !== item) {
+          li.classList.remove('show-dropdown');
+        }
+      });
+    }
+
+    // Optional: close if clicking outside
+    window.onclick = function (e) {
+      if (!e.target.closest('.navbar li')) {
+        document.querySelectorAll('.navbar li').forEach(li => {
+          li.classList.remove('show-dropdown');
+        });
+      }
+    }
+  </script>
+</body>
+</html>
