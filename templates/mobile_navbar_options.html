@@ -1,0 +1,11 @@
+{% load static %}
+
+
+
+      <li hx-get="{% url 'home' %}" hx-target="#main-area" hx-push-url="/" class="mobile-nav-home"><strong>Strona Glowna</strong></li>
+      <hr>
+{% for category in categories %}
+      <li hx-get="{% url 'articles' category.slug %}" hx-target="#main-area" hx-push-url="/articles/{{ category.slug }}/"
+         class="menu-mobile-nav" >{{ category.name }}</li>
+      <hr>
+{% endfor %}

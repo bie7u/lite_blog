@@ -1,11 +1,15 @@
-
-{% extends "base.html" %}
-
-{% block content %}
+{% load static %}
     <div class="articles">
-        <h1 class="article-overview-category">Ostatnie artykuly</h1>
-            <h3>Ostatnie artykuly</h3>
-{#            <div class="articles-content">#}
+        <h1 class="article-overview-category">Najnowsze artykuly z kategorii: {{ category.name }} </h1>
+            <div class="articles-content">
+
+                            {% for article in articles %}
+                                <div class="article-overview">
+                    <h2 class="article-overview-title">{{ article.title }}</h2>
+                    <span class="article-overview-write">{{ article.content|slice:"250" }}...</span>
+                    <span class="article-date-overview">Data publikacji: {{ article.created_at }}</span>
+                </div>
+        {% endfor %}
 {#                <div class="article-overview">#}
 {#                    <h2 class="article-overview-title">Tytul Artykulu blalblablalbalb</h2>#}
 {#                    <span class="article-overview-write">Lorem ipsumdsfasjdfkljsda;lfkjsda;klfj;sdklajf;kl assdafj ;lfkjasdl;kf jl;asdkjf l;kasdjl;fkjasd;klfas....</span>#}
@@ -22,8 +26,7 @@
 {#                    <span class="article-overview-write">Lorem ipsumdsfasjdfkljsda;lfkjsda;klfj;sdklajf;kl assdafj ;lfkjasdl;kf jl;asdkjf l;kasdjl;fkjasd;klfas....</span>#}
 {#                    <span class="article-date-overview">Data publikacji: 1.01.2025</span>#}
 {#                </div>#}
-{#            </div>#}
+            </div>
 
 
         </div>
-{% endblock %}

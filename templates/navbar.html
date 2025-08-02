@@ -1,0 +1,20 @@
+{% load static %}
+<div class="sidebar">
+   <div class="up-navbar">
+      <div class="nav-avatar">
+         <img class="circle-img" src="{% static 'img/images.jpeg' %}" alt="Avatar">
+      </div>
+      <div>
+         <h1>Krystian Biel</h1>
+      </div>
+      <div class="sidebar-icons">
+          <a class="black-icon" href="https://linkedin.com/in/krystian-biel/" target="_blank"><i class="fa-brands fa-lg fa-linkedin pointer-icon"></i></a>
+          <a class="black-icon" href="https://github.com/bie7u" target="_blank"><i class="fa-brands fa-lg fa-github pointer-icon"></i></a>
+{#          <a class="black-icon" href="https://example.com" target="_blank"><i class="fa-brands fa-lg fa-instagram pointer-icon"></i></a>#}
+{#          <a class="black-icon" href="https://example.com" target="_blank"><i class="fa-solid  fa-lg fa-envelope pointer-icon"></i></a>#}
+      </div>
+   </div>
+   <hr class="nav-hr">
+   <ul hx-get="{% url 'navbar' %}" hx-swap="innerHTML" hx-trigger="load" class="nav-down">
+   </ul>
+</div>

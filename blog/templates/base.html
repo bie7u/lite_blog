@@ -1,0 +1,90 @@
+{% load django_htmx static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twoj blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    {% htmx_script %}
+     <script src="{% static '/js/script.js' %}" defer></script>
+</head>
+
+<body>
+    <nav class="mobile-navbar">
+        <div class="mobile-nav-left">
+            <p>Krystian Biel</p>
+        </div>
+        <div>
+          <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+                <nav class="menu" id="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+          <hr>
+        <li><a href="#">Services</a></li>
+          <hr>
+
+        <li><a href="#">Portfolio</a></li>
+          <hr>
+
+          <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+        </div>
+    </nav>
+  <div class="page-layout">
+
+    <div class="sidebar">
+      <div class="up-navbar">
+        <div class="nav-avatar">
+          <img class="circle-img" src="{% static 'img/images.jpeg' %}" alt="Avatar">
+        </div>
+        <div>
+          <h1>Krystian Biel</h1>
+        </div>
+          <div class="sidebar-icons">
+          <i class="fa-brands fa-lg fa-linkedin pointer-icon"></i>
+          <i class="fa-brands fa-lg fa-github pointer-icon"></i>
+          <i class="fa-brands fa-lg fa-instagram pointer-icon"></i>
+          <i class="fa-solid  fa-lg fa-envelope pointer-icon"></i>
+              </div>
+      </div>
+        <hr class="nav-hr">
+      <ul class="nav-down">
+
+                  {% for category in categories %}
+            <a hx-get="{% url 'articles' category.slug %}" hx-target="#main-area" hx-push-url="/articles/{{ category.slug }}/">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+        <li class="nav-down-li">Home</li>
+          <hr class="nav-li-hr">
+        <li class="nav-down-li">Raz</li>
+          <hr class="nav-li-hr">
+        <li class="nav-down-li">Dwa</li>
+          <hr class="nav-li-hr">
+        <li class="nav-down-li">Trzy</li>
+          <hr class="nav-li-hr">
+      </ul>
+    </div>
+    <div id="main-area">
+        {% block content %}
+        {% endblock %}
+      <footer class="footer">
+        Powered by Django Lite Blog
+      </footer>
+    </div>
+
+  </div>
+ {% django_htmx_script %}
+</body>
+
+
+
+</html>

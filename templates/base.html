@@ -1,10 +1,27 @@
+{% load django_htmx static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <title>Twoj blog</title>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="{% static '/css/style.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      {% htmx_script %}
+      <script src="{% static '/js/script.js' %}" defer></script>
+   </head>
+   <body>
+       {% include "mobile_navbar.html" %}
+      <div class="page-layout">
+         {% include "navbar.html" %}
+      <div class="main-ar">
+         <div id="main-area">
+            {% block content %}
+            {% endblock %}
+         </div>
+        <div>{% include "footer.html" %}</div>
+      </div>
+      </div>
+      {% django_htmx_script %}
+   </body>
 </html>
