@@ -17,11 +17,10 @@ hamburger.addEventListener('click', () => {
 
 });
 
-menu.addEventListener("click", function () {
+menu.addEventListener("htmx:afterSwap", function () {
   const hamburger = document.querySelector('.hamburger');
   const menu = document.querySelector('.menu');
   const menuItems = document.querySelectorAll('.mobile-nav-home, .menu-mobile-nav');
-
   menuItems.forEach(item => {
     item.addEventListener('click', function () {
       hamburger.classList.remove('active');

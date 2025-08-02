@@ -5,7 +5,7 @@
 
     <div class="articles-content">
         {% for article in articles %}
-            <div class="article-overview">
+            <div hx-get="{% url 'article-detail' article.id %}" hx-target="#main-area" hx-push-url="/article-detail/{{ article.id }}/" class="article-overview">
                 <h2 class="article-overview-title">{{ article.title }}</h2>
                 <span class="article-overview-write">
                     {{ article.content|slice:"250" }}...
@@ -17,3 +17,4 @@
         {% endfor %}
     </div>
 </div>
+
