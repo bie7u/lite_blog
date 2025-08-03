@@ -8,7 +8,7 @@ This is a lite blog app that anyone can use to start their own blogging journey.
 - [About](#about)  
 - [Features](#features)  
 - [Screenshots](#screenshots)  
-- [How to run](#how_to_run)
+- [Running](#running)
 - [TO DO](#todo)
 - [License](#license)
 
@@ -47,7 +47,7 @@ Responsive navbar (animated hamburger) <br>
 
 ---
 
-## How to run
+## Running
 
 ---
 
@@ -63,6 +63,7 @@ And what you figure out. Feel free to develop this project
 ## License
 
 MIT License
+
 
 
 
