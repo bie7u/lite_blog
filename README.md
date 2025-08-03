@@ -34,7 +34,19 @@ It aims to provide basic blogging software.
 
 ---
 
+## Screenshots
+
+<img width="1831" height="967" alt="image" src="https://github.com/user-attachments/assets/2fb7fcb3-002a-49e5-82bd-ca709023a45e" />
+
+---
+
+## License
+
+Feel free to use it.
+
 ## Installation
+
+---
 
 Make sure you have [prerequisites, e.g., Node.js, Python 3.8+] installed.
 
@@ -47,5 +59,6 @@ cd yourproject
 
 # Install dependencies
 npm install
+
 
 
