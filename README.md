@@ -1,12 +1,11 @@
 # Project Title
 
-A brief description of what this project does and the problem it solves.
+This is a lite blog app that anyone can use to start their own blogging journey.
 
 ---
 
 ## Table of Contents
 - [About](#about)  
-- [Why Run This Project?](#why-run-this-project)  
 - [Features](#features)  
 - [Installation](#installation)  
 - [Usage](#usage)  
@@ -19,24 +18,19 @@ A brief description of what this project does and the problem it solves.
 
 ## About
 
-This project is built using [list your technologies, e.g., React, Node.js, Python, etc.].  
-It aims to [explain the goal or purpose in detail].  
-
----
-
-## Why Run This Project?
-
-- To solve [describe the problem].  
-- To help [target audience or users].  
-- To provide [unique advantages or features].  
+This project is built using [Django, HTMX, CKEDITOR].  
+It aims to provide basic blogging software.
 
 ---
 
 ## Features
 
-- Feature 1: Description of feature 1.  
-- Feature 2: Description of feature 2.  
-- Feature 3: Description of feature 3.  
+- Adding articles by admin
+- Adding categories by admin
+- Reading articles by users
+- Sort articles by categories
+- Links to social media's
+- Photo of blogger
 
 ---
 
@@ -53,4 +47,5 @@ cd yourproject
 
 # Install dependencies
 npm install
+
 
