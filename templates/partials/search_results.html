@@ -1,0 +1,25 @@
+{% if articles %}
+    <div class="search-results-list">
+        <h3>Found {{ articles.count }} result{{ articles.count|pluralize }}</h3>
+        {% for article in articles %}
+            <div 
+                hx-get="{% url 'article-detail' article.id %}"
+                hx-target="#main-area"
+                hx-push-url="/article-detail/{{ article.id }}/"
+                class="search-result-item"
+            >
+                <h4>{{ article.title }}</h4>
+                <p>{{ article.description }}</p>
+                <span class="search-result-meta">
+                    Category: {{ article.category.name }} | 
+                    {{ article.created_at|date:"M d, Y" }}
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+{% elif query %}
+    <div class="no-results">
+        <p>No articles found for "{{ query }}"</p>
+        <p>Try different keywords or browse our categories.</p>
+    </div>
+{% endif %}

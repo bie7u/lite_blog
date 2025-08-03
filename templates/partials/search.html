@@ -1,0 +1,33 @@
+<div class="search-container">
+    <div class="breadcrumb">
+        <a href="/" class="breadcrumb-link">← Back to Home</a>
+    </div>
+    
+    <h2>Search Articles</h2>
+    <form 
+        hx-get="{% url 'search' %}" 
+        hx-target="#search-results"
+        hx-trigger="input changed delay:500ms, search"
+        class="search-form"
+    >
+        <div class="search-input-group">
+            <input 
+                type="text" 
+                name="q" 
+                placeholder="Search articles..." 
+                value="{{ query }}"
+                class="search-input"
+                autofocus
+            >
+            <button type="submit" class="search-button">Search</button>
+        </div>
+    </form>
+    
+    <div id="search-results" class="search-results">
+        {% if query %}
+            {% include 'partials/search_results.html' %}
+        {% else %}
+            <p class="search-hint">Start typing to search articles...</p>
+        {% endif %}
+    </div>
+</div>
