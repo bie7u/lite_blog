@@ -43,7 +43,7 @@ Adding arcicle (Django Admin)
 <img width="1831" height="967" alt="image" src="https://github.com/user-attachments/assets/85f86265-ec58-449c-a947-e84f2dc18fd8" />
 Adding category (Django Admin)
 <img width="1831" height="967" alt="image" src="https://github.com/user-attachments/assets/3d9943da-385a-49ee-bdfe-95d3bf680b1e" />
-Responsive navbar (animated hamburger)
+Responsive navbar (animated hamburger) <br>
 <img width="459" height="887" alt="image" src="https://github.com/user-attachments/assets/b6abfb1e-cdb0-41dc-9358-2fdc6ac42602" />
 
 ---
@@ -67,6 +67,7 @@ cd yourproject
 
 # Install dependencies
 npm install
+
 
 
 
