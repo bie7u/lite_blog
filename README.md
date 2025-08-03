@@ -47,6 +47,11 @@ Responsive navbar (animated hamburger) <br>
 
 ---
 
+## How to run
+
+---
+
+
 ## TODO
 - Scroll to top button
 - Nested Categories <br>
@@ -59,21 +64,6 @@ And what you figure out. Feel free to develop this project
 
 MIT License
 
-## Installation
-
----
-
-Make sure you have [prerequisites, e.g., Node.js, Python 3.8+] installed.
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/yourproject.git
-
-# Navigate into the project folder
-cd yourproject
-
-# Install dependencies
-npm install
 
 
 
