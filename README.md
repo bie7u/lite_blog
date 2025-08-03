@@ -52,6 +52,7 @@ Responsive navbar (animated hamburger) <br>
 - Nested Categories <br>
 
 And what you figure out. Feel free to develop this project
+
 ---
 
 ## License
@@ -73,6 +74,7 @@ cd yourproject
 
 # Install dependencies
 npm install
+
 
 
 
