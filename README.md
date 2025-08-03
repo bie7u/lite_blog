@@ -49,7 +49,7 @@ Responsive navbar (animated hamburger) <br>
 
 ## TODO
 - Scroll to top button
-- Nested Categories
+- Nested Categories <br>
 And what you figure out. Feel free to develop this project
 ---
 
@@ -72,6 +72,7 @@ cd yourproject
 
 # Install dependencies
 npm install
+
 
 
 
