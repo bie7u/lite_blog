@@ -7,12 +7,10 @@ This is a lite blog app that anyone can use to start their own blogging journey.
 ## Table of Contents
 - [About](#about)  
 - [Features](#features)  
-- [Installation](#installation)  
-- [Usage](#usage)  
 - [Screenshots](#screenshots)  
-- [Contributing](#contributing)  
-- [License](#license)  
-- [Contact](#contact)  
+- [How to run](#how_to_run)
+- [TO DO](#todo)
+- [License](#license)
 
 ---
 
@@ -31,6 +29,7 @@ It aims to provide basic blogging software.
 - Sort articles by categories
 - Links to social media's
 - Photo of blogger
+- Media save in /media folder (ckeditor)
 
 ---
 
@@ -48,9 +47,15 @@ Responsive navbar (animated hamburger) <br>
 
 ---
 
+## TODO
+- Scroll to top button
+- Nested Categories
+And what you figure out. Feel free to develop this project
+---
+
 ## License
 
-Feel free to use it.
+MIT License
 
 ## Installation
 
@@ -67,6 +72,7 @@ cd yourproject
 
 # Install dependencies
 npm install
+
 
 
 
