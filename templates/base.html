@@ -21,7 +21,7 @@
         {% include "navbar.html" %}
 
         <div class="main-ar">
-            <div id="main-area">
+            <div id="main-area" class="main-area">
                 {% block content %}
                 {% endblock %}
             </div>
@@ -33,7 +33,32 @@
         </div>
     </div>
 
+    <!-- Loading indicator for HTMX requests -->
+    <div id="loading-indicator" class="loading-indicator" style="display: none;">
+        <div class="loading-spinner"></div>
+        <span>Loading...</span>
+    </div>
+
     <!-- Django HTMX Support -->
     {% django_htmx_script %}
+    
+    <!-- HTMX Event Handlers -->
+    <script>
+        // Show loading indicator on HTMX requests
+        document.body.addEventListener('htmx:beforeRequest', function(evt) {
+            document.getElementById('loading-indicator').style.display = 'flex';
+        });
+        
+        // Hide loading indicator when request is complete
+        document.body.addEventListener('htmx:afterRequest', function(evt) {
+            document.getElementById('loading-indicator').style.display = 'none';
+        });
+        
+        // Handle errors gracefully
+        document.body.addEventListener('htmx:responseError', function(evt) {
+            console.error('HTMX Error:', evt.detail);
+            document.getElementById('loading-indicator').style.display = 'none';
+        });
+    </script>
 </body>
 </html>

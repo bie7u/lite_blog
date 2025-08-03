@@ -1,8 +1,9 @@
 from pydoc import pager
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from blog.models import Category, Article
+from django.contrib import messages
+from blog.models import Category, Article, Comment
 
 
 def articles(request, slug):
@@ -45,11 +46,65 @@ def home(request):
     return render(request, 'pages/home.html', context)
 
 
+def search_articles(request):
+    query = request.GET.get('q', '')
+    articles = []
+    
+    if query:
+        articles = Article.objects.filter(
+            title__icontains=query
+        ).order_by('-created_at')[:10]
+    
+    context = {
+        'articles': articles,
+        'query': query
+    }
+    
+    if request.htmx:
+        return render(request, 'partials/search_results.html', context)
+    return render(request, 'pages/search.html', context)
+
+
 def article_detail(request, id):
     article = get_object_or_404(Article, id=id)
+    comments = article.comments.all()[:10]  # Show latest 10 comments
+    
     context = {
-        'article': article
+        'article': article,
+        'comments': comments
     }
     if request.htmx:
         return render(request, 'partials/article_detail.html', context)
     return render(request, 'pages/article_detail.html', context)
+
+
+def add_comment(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+    
+    if request.method == 'POST':
+        author_name = request.POST.get('author_name', '').strip()
+        content = request.POST.get('content', '').strip()
+        
+        if author_name and content:
+            comment = Comment.objects.create(
+                article=article,
+                author_name=author_name,
+                content=content
+            )
+            
+            if request.htmx:
+                # Return the updated comments list
+                comments = article.comments.all()[:10]
+                context = {'comments': comments}
+                return render(request, 'partials/comments_list.html', context)
+        else:
+            if request.htmx:
+                return render(request, 'partials/comment_form.html', {
+                    'article': article,
+                    'error': 'Please fill in all fields.'
+                })
+    
+    if request.htmx:
+        return render(request, 'partials/comment_form.html', {'article': article})
+    
+    return redirect('article-detail', id=article_id)

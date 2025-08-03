@@ -10,6 +10,16 @@
 </li>
 <hr>
 
+<li
+    hx-get="{% url 'search' %}"
+    hx-target="#main-area"
+    hx-push-url="/search/"
+    class="mobile-nav-home"
+>
+    <strong>Search</strong>
+</li>
+<hr>
+
 {% for category in categories %}
     <li
         hx-get="{% url 'articles' category.slug %}"

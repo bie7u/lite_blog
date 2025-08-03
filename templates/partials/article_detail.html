@@ -11,5 +11,20 @@
         <span>
             {{ article.content|safe }}
         </span>
+        
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h3>Comments ({{ comments.count }})</h3>
+            
+            <!-- Comment Form -->
+            <div id="comment-form-container">
+                {% include 'partials/comment_form.html' %}
+            </div>
+            
+            <!-- Comments List -->
+            <div id="comments-list">
+                {% include 'partials/comments_list.html' %}
+            </div>
+        </div>
     </div>
 </main>
