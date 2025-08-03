@@ -1,10 +1,23 @@
 {% load static %}
 
-      <li hx-get="{% url 'home' %}" hx-target="#main-area" hx-push-url="/"
-          class="nav-down-li"><strong>Strona Glowna</strong></li>
-      <hr class="nav-li-hr">
+<li
+    hx-get="{% url 'home' %}"
+    hx-target="#main-area"
+    hx-push-url="/"
+    class="nav-down-li"
+>
+    <strong>Home</strong>
+</li>
+<hr class="nav-li-hr">
+
 {% for category in categories %}
-      <li hx-get="{% url 'articles' category.slug %}" hx-target="#main-area" hx-push-url="/articles/{{ category.slug }}/"
-          class="nav-down-li">{{ category.name }}</li>
-      <hr class="nav-li-hr">
+    <li
+        hx-get="{% url 'articles' category.slug %}"
+        hx-target="#main-area"
+        hx-push-url="/articles/{{ category.slug }}/"
+        class="nav-down-li"
+    >
+        {{ category.name }}
+    </li>
+    <hr class="nav-li-hr">
 {% endfor %}

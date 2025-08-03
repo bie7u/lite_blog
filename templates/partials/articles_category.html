@@ -1,49 +1,64 @@
+{% load custom_filters %}
+
 <div class="articles">
     <h1 class="article-overview-category">
-        Najnowsze artykuly z kategorii: {{ category.name }}
+        Latest articles in category: {{ category.name }}
     </h1>
 
     <div class="articles-content">
         {% for article in page_obj %}
-            <div hx-get="{% url 'article-detail' article.id %}" hx-target="#main-area" hx-push-url="/article-detail/{{ article.id }}/" class="article-overview">
+            <div
+                hx-get="{% url 'article-detail' article.id %}"
+                hx-target="#main-area"
+                hx-push-url="/article-detail/{{ article.id }}/"
+                class="article-overview"
+            >
                 <h2 class="article-overview-title">{{ article.title }}</h2>
                 <span class="article-overview-write">
-                    {{ article.content|slice:"250" }}...
+                    {{ article.description }}...
                 </span>
                 <span class="article-date-overview">
-                    Data publikacji: {{ article.created_at }}
+                    Publication Date: {{ article.created_at|date:"d-m-Y H:i" }}
                 </span>
             </div>
         {% endfor %}
 
-    <div class="pagination">
-  {% if page_obj.has_previous %}
-    <a class="page-link"
-       hx-get="{% url 'articles' category.slug %}?page=1"
-       hx-target="#main-area"
-       hx-push-url="/articles/{{ category.slug }}/?page=1">&laquo;</a>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a
+                    class="page-link"
+                    hx-get="{% url 'articles' category.slug %}?page=1"
+                    hx-target="#main-area"
+                    hx-push-url="/articles/{{ category.slug }}/?page=1"
+                >&laquo;</a>
 
-    <a class="page-link"
-       hx-get="{% url 'articles' category.slug %}?page={{ page_obj.previous_page_number }}"
-       hx-target="#main-area"
-       hx-push-url="/articles/{{ category.slug }}/?page={{ page_obj.previous_page_number }}">‹</a>
-  {% endif %}
+                <a
+                    class="page-link"
+                    hx-get="{% url 'articles' category.slug %}?page={{ page_obj.previous_page_number }}"
+                    hx-target="#main-area"
+                    hx-push-url="/articles/{{ category.slug }}/?page={{ page_obj.previous_page_number }}"
+                >‹</a>
+            {% endif %}
 
-  <span class="page-info">
-    Strona <strong>{{ page_obj.number }}</strong> z {{ page_obj.paginator.num_pages }}
-  </span>
+            <span class="page-info">
+                Strona <strong>{{ page_obj.number }}</strong> z {{ page_obj.paginator.num_pages }}
+            </span>
 
-  {% if page_obj.has_next %}
-    <a class="page-link"
-       hx-get="{% url 'articles' category.slug %}?page={{ page_obj.next_page_number }}"
-       hx-target="#main-area"
-       hx-push-url="/articles/{{ category.slug }}/?page={{ page_obj.next_page_number }}">›</a>
+            {% if page_obj.has_next %}
+                <a
+                    class="page-link"
+                    hx-get="{% url 'articles' category.slug %}?page={{ page_obj.next_page_number }}"
+                    hx-target="#main-area"
+                    hx-push-url="/articles/{{ category.slug }}/?page={{ page_obj.next_page_number }}"
+                >›</a>
 
-    <a class="page-link"
-       hx-get="{% url 'articles' category.slug %}?page={{ page_obj.paginator.num_pages }}"
-       hx-target="#main-area"
-       hx-push-url="/articles/{{ category.slug }}/?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
-  {% endif %}
-</div>
+                <a
+                    class="page-link"
+                    hx-get="{% url 'articles' category.slug %}?page={{ page_obj.paginator.num_pages }}"
+                    hx-target="#main-area"
+                    hx-push-url="/articles/{{ category.slug }}/?page={{ page_obj.paginator.num_pages }}"
+                >&raquo;</a>
+            {% endif %}
+        </div>
     </div>
 </div>

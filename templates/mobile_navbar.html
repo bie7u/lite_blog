@@ -1,16 +1,26 @@
-      <nav class="mobile-navbar">
-         <div class="mobile-nav-left">
-            <p>Krystian Biel</p>
-         </div>
-         <div>
-            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+<nav class="mobile-navbar">
+    <div class="mobile-nav-left">
+        <p>Your Website Name</p>
+    </div>
+
+    <div>
+        <button 
+            class="hamburger" 
+            id="hamburger" 
+            aria-label="Menu" 
+            aria-expanded="false"
+        >
             <span></span>
             <span></span>
             <span></span>
-            </button>
-            <nav class="menu" id="menu">
-               <ul hx-get="{% url 'mobile-navbar' %}" hx-swap="innerHTML" hx-trigger="load">
-               </ul>
-            </nav>
-         </div>
-      </nav>
+        </button>
+
+        <nav class="menu" id="menu">
+            <ul 
+                hx-get="{% url 'mobile-navbar' %}" 
+                hx-swap="innerHTML" 
+                hx-trigger="load"
+            ></ul>
+        </nav>
+    </div>
+</nav>
