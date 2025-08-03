@@ -1,0 +1,4 @@
+Django==5.0.6
+django-htmx==1.17.2
+django-ckeditor==6.7.0
+Pillow==10.3.0
