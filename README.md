@@ -1,4 +1,4 @@
-<img width="1831" height="967" alt="image" src="https://github.com/user-attachments/assets/2bbacfe9-3438-4972-a5b7-53204fc2433f" /># Project Title
+# Project Title
 
 This is a lite blog app that anyone can use to start their own blogging journey.
 
@@ -42,7 +42,9 @@ It aims to provide basic blogging software.
 Adding arcicle (Django Admin)
 <img width="1831" height="967" alt="image" src="https://github.com/user-attachments/assets/85f86265-ec58-449c-a947-e84f2dc18fd8" />
 Adding category (Django Admin)
-<img width="1831" height="967" alt="image" src="https://github.com/user-attachments/assets/c4ea3b97-4244-4dc7-93ca-30625fc6959c" />
+<img width="1831" height="967" alt="image" src="https://github.com/user-attachments/assets/3d9943da-385a-49ee-bdfe-95d3bf680b1e" />
+Responsive navbar (animated hamburger)
+<img width="459" height="887" alt="image" src="https://github.com/user-attachments/assets/b6abfb1e-cdb0-41dc-9358-2fdc6ac42602" />
 
 ---
 
@@ -65,6 +67,7 @@ cd yourproject
 
 # Install dependencies
 npm install
+
 
 
 
