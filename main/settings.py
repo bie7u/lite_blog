@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_htmx',
     'ckeditor',
     'ckeditor_uploader',
+    'ordered_model',
     # Apps
     'blog',
 ]
